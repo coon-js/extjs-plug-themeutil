@@ -1,0 +1,40 @@
+{
+    "name": "plug-cn_themeutil",
+
+    "sencha": {
+        "coon-js" : {"package" : {}},
+        "namespace": "coon.plugin.themeutil",
+        "type": "code",
+        "toolkit": "classic",
+        "creator": "coon.js",
+        "summary": "ControllerPlugin for registering coon.core.Theme with a coon.js-application.",
+        "detailedDescription": "ControllerPlugin for registering coon.core.Theme with a coon.js-application. Requires lib-cn_core.",
+        "version": "1.0.0",
+        "compatVersion": "1.0.0",
+        "format": "1",
+        "slicer": null,
+        "output": {
+            "base": "${package.dir}/build",
+            "js": {
+                "version": "ES6"
+            }
+        },
+        "compressor": {
+            "polyfills": "none"
+        },
+        "local": true,
+        "sass": null,
+        "classpath": [
+            "${package.dir}/src",
+            "${package.dir}/${toolkit.name}/src"
+        ],
+        "overrides": [
+            "${package.dir}/overrides"
+        ],
+        "example": null,
+        "framework": "ext",
+        "requires": [
+            "lib-cn_core"
+        ]
+    }
+}
