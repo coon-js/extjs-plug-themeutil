@@ -2,7 +2,7 @@
     "name": "plug-cn_themeutil",
 
     "sencha": {
-        "coon-js" : {"package" : {}},
+        "coon-js" : {"package" : true},
         "namespace": "coon.plugin.themeutil",
         "type": "code",
         "toolkit": "classic",
@@ -16,10 +16,17 @@
         "output": {
             "base": "${package.dir}/build",
             "js": {
-                "version": "ES6"
+                "version": "ES8"
+            }
+        },
+        "language": {
+            "js": {
+                "input": "ES8",
+                "output": "ES8"
             }
         },
         "compressor": {
+            "type" : "closure",
             "polyfills": "none"
         },
         "local": true,

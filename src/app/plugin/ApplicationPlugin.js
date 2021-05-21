@@ -24,31 +24,31 @@
  */
 
 /**
- * ControllerPlugin for registering q {coon.core.Theme} with the {coon.core.ThemeManager}
+ * ApplicationPlugin for registering a {coon.core.Theme} with the {coon.core.ThemeManager}
  * to make it generally available to an application.
  * Reads out configuration from the {coon.core.ConfigManager} for the theme's package and
  * applies its "modes"-value (if config available) to the theme.
  * 
  * Any theme that inherits from coon.core.Theme that should be considered with this plugin must obey to the following
  * conventions:
- * - The theme must be registered with
- *    Ext.theme.is["coon-js-theme"] = true
- *    Ext.theme.name = "name_of_the_theme_package", e.g. if the
- *    package's namespace is "theme-acme", this setting would be "Ext.theme.name = 'theme-acme'"
- *    These settings are usually configured in a file called init.js, placed in the overrides-folder
- *    of the theme-package.
+ * - Theme's information must be available for querying the environment using coon.core.Environment.get("theme.is.coon-js-theme"),
+ *   which should return "true" to make sure this plugin can consume further theme information.
+ *   coon.core.Environment.get("theme.name") should return the name of the theme's package.
+ *   These settings are usually configured in a file called init.js, placed in the overrides-folder
+ *   of the theme-package.
  * - The theme's class-name must be build as follows: "package_namespace.Theme", e.g. if the
  *   package's namespace is "acme.theme.colorTheme", the fqn of the theme-class extending {coon.core.Theme}
  *   must be "acme.theme.colorTheme.Theme"
- *
+ * - The theme's class must have been made available in the Application when this plugin tries to access it
  */
-Ext.define("coon.plugin.themeutil.app.ControllerPlugin", {
+Ext.define("coon.plugin.themeutil.app.plugin.ApplicationPlugin", {
 
-    extend : "coon.core.app.ControllerPlugin",
+    extend : "coon.core.app.plugin.ApplicationPlugin",
 
     requires : [
         "coon.core.ThemeManager",
-        "coon.core.ConfigManager"
+        "coon.core.ConfigManager",
+        "coon.core.Environment"
     ],
 
 
@@ -61,20 +61,22 @@ Ext.define("coon.plugin.themeutil.app.ControllerPlugin", {
      * @param {coon.core.app.PackageController} packagerController
      */
     run : function (controller) {
+        "use strict";
 
         if (coon.core.ThemeManager.getTheme()) {
             return;
         }
 
-        if (!Ext.theme || !Ext.theme.is["coon-js-theme"]) {
+        if (!coon.core.Environment.get("theme") ||
+            !coon.core.Environment.get("theme.is.coon-js-theme")) {
             return;
         }
 
         const
-            themeName = Ext.theme.name,
-            fqn = Ext.manifest.packages[themeName].namespace + ".Theme",
+            themeName = coon.core.Environment.get("theme.name"),
+            fqn = coon.core.Environment.getPackage(themeName).namespace + ".Theme",
             config = coon.core.ConfigManager.get(themeName) || {},
-            theme = Ext.create(fqn, config.modes);
+            theme = Ext.create(fqn, config);
 
         coon.core.ThemeManager.setTheme(theme);
     }

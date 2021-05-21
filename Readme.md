@@ -1,6 +1,6 @@
 # plug-cn_themeutil  
-[ControllerPlugin](https://github.com/coon-js/lib-cn_core/blob/master/src/app/PluginController.js) for querying and 
-applying a configured [coon.core.Theme](https://github.com/coon-js/lib-cn_core) for a [coon.js](https://github.com/coon-js) application.
+[ApplicationPlugin](https://github.com/coon-js/lib-cn_core/blob/master/src/app/plugin/ApplicationPlugin.js) for querying and 
+applying a configured [coon.core.Theme](https://github.com/coon-js/lib-cn_core/blob/master/src/Theme.js) for a [coon.js](https://github.com/coon-js) application.
 
 ## Overview
 The plugin serves different purposes:
@@ -14,7 +14,7 @@ The plugin serves different purposes:
 The following naming conventions apply:
 
 #### Namespace
-`coon.plugin.cn_themeutil.*`
+`coon.plugin.themeutil.*`
 #### Package name
 `plug-cn_themeutil`
 #### Shorthand to be used with providing aliases
@@ -29,9 +29,9 @@ Any theme that inherits from ```coon.core.Theme``` that should be considered wit
 conventions:
 
   * The theme must be registered with 
-    * ```Ext.theme.is["coon-js-theme"] = true```
-    * ```Ext.theme.name = "name_of_the_theme_package"```, e.g. if the
-     package's namespace is ```theme-acme```, this setting would be ```Ext.theme.name = "theme-acme"```
+    * ```coon.core.Environment.get("coon-js-theme") = true```
+    * ```coon.core.Environment.get("theme.name") = "name_of_the_theme_package"```, e.g. if the
+     package's name is ```theme-acme```, this setting must equal to ```theme-acme```
     
     These settings are usually configured in a file called ```init.js```, placed in the ```overrides```-folder
     of the theme-package.

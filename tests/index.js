@@ -36,7 +36,11 @@ harness.configure({
         /**
          * Requirements
          */
-        "coon.core" : "../../lib-cn_core/src"
+        "coon.core" : "../../lib-cn_core/src",
+
+        "Ext.Package" : "../../../remote/package-loader/src/Package.js",
+        "Ext.package" : "../../../remote/package-loader/src/package"
+
 
     },
     preload        : [
@@ -55,9 +59,12 @@ harness.start({
                 group : "themeutil",
                 items : [{
                     group : "app",
-                    items : [
-                        "./src/app/ControllerPluginTest.js"
-                    ]
+                    items : [{
+                        group : "plugin",
+                        items : [
+                            "./src/app/plugin/ApplicationPluginTest.js"
+                        ]
+                    }]
                 }]
             }]
         }]
