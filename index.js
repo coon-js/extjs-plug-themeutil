@@ -1,7 +1,7 @@
 /**
  * coon.js
- * plug-cn_themeutil
- * Copyright (C) 2021 Thorsten Suckow-Homberg https://github.com/coon/plug-cn_themeutil
+ * extjs-plug-themeutil
+ * Copyright (C) 2021 Thorsten Suckow-Homberg https://github.com/coon-js/extjs-plug-themeutil
  *
  * Permission is hereby granted, free of charge, to any person
  * obtaining a copy of this software and associated documentation
@@ -23,20 +23,4 @@
  * USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-window.coon = window.coon || {};
-coon.tests = coon.tests || {};
-coon.tests.config = coon.tests.config || {};
-
-
-coon.tests.config.paths = {
-    extjs : {
-        js : {
-            url : "[PATH_TO_EXT_ALL.JS]" /*Your path to your ExtJS distribution (e.g. ext-all-debug.js) */
-        },
-        css : {
-            url : "[PATH_TO_EXT_THEME.JS]" /*Your path to an ExtJS theme, preferably Triton Theme */
-        }
-    }
-}
-
-
+// intentionally left empty

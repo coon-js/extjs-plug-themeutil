@@ -1,47 +1,91 @@
 {
-    "name": "plug-cn_themeutil",
-
-    "sencha": {
-        "coon-js" : {"package" : true},
-        "namespace": "coon.plugin.themeutil",
-        "type": "code",
-        "toolkit": "classic",
-        "creator": "coon.js",
-        "summary": "ControllerPlugin for registering coon.core.Theme with a coon.js-application.",
-        "detailedDescription": "ControllerPlugin for registering coon.core.Theme with a coon.js-application. Requires lib-cn_core.",
-        "version": "1.0.0",
-        "compatVersion": "1.0.0",
-        "format": "1",
-        "slicer": null,
-        "output": {
-            "base": "${package.dir}/build",
-            "js": {
-                "version": "ES8"
-            }
-        },
-        "language": {
-            "js": {
-                "input": "ES8",
-                "output": "ES8"
-            }
-        },
-        "compressor": {
-            "type" : "closure",
-            "polyfills": "none"
-        },
-        "local": true,
-        "sass": null,
-        "classpath": [
-            "${package.dir}/src",
-            "${package.dir}/${toolkit.name}/src"
-        ],
-        "overrides": [
-            "${package.dir}/overrides"
-        ],
-        "example": null,
-        "framework": "ext",
-        "requires": [
-            "lib-cn_core"
-        ]
-    }
+  "name": "@coon-js/extjs-plug-themeutil",
+  "sencha": {
+    "coon-js": {
+      "package": true
+    },
+    "namespace": "coon.plugin.themeutil",
+    "type": "code",
+    "toolkit": "classic",
+    "creator": "coon.js",
+    "summary": "NPM package providing a ControllerPlugin for registering coon.core.Theme with a coon.js-application.",
+    "version": "0.0.1",
+    "compatVersion": "0.0.1",
+    "format": "1",
+    "slicer": null,
+    "output": {
+      "base": "${package.dir}/build",
+      "js": {
+        "version": "ES8"
+      }
+    },
+    "language": {
+      "js": {
+        "input": "ES8",
+        "output": "ES8"
+      }
+    },
+    "compressor": {
+      "type": "closure",
+      "polyfills": "none"
+    },
+    "local": true,
+    "sass": null,
+    "classpath": [
+      "${package.dir}/src",
+      "${package.dir}/${toolkit.name}/src"
+    ],
+    "overrides": [
+      "${package.dir}/overrides"
+    ],
+    "example": null,
+    "framework": "ext",
+    "requires": [
+      "extjs-lib-core"
+    ]
+  },
+  "description": "NPM package providing a ControllerPlugin for registering coon.core.Theme with a coon.js-application.",
+  "version": "0.0.1",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "npx ws --port 8063 --static.index tests.html --open",
+    "postinstall" : "npx extjs-link"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coon-js/extjs-plug-themeutil.git"
+  },
+  "keywords": [
+    "plugin",
+    "coon.js",
+    "coon-js",
+    "l8js",
+    "l8.j",
+    "l8",
+    "extjs",
+    "sencha",
+    "package",
+    "npm",
+    "javascript",
+    "theme",
+    "material"
+  ],
+  "author": "Thorsten Suckow-Homberg <thorsten@suckow-homberg.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/coon-js/extjs-plug-themeutil/issues"
+  },
+  "homepage": "https://github.com/coon-js/extjs-plug-themeutil#readme",
+  "devDependencies": {
+    "@coon-js/extjs-lib-core": "file:../extjs-lib-core",
+    "@coon-js/extjs-link": "file:../extjs-link",
+    "@coon-js/extjs-package-loader": "^1.0.0",
+    "@coon-js/siesta-lib-helper": "file:../siesta-lib-helper",
+    "@l8js/l8": "file:../../@l8js/l8",
+    "local-web-server": "^4.2.1",
+    "siesta-lite": "^5.5.2"
+  }
 }

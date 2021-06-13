@@ -1,7 +1,7 @@
 /**
  * coon.js
- * plug-cn_themeutil
- * Copyright (C) 2021 Thorsten Suckow-Homberg https://github.com/coon/plug-cn_themeutil
+ * extjs-plug-themeutil
+ * Copyright (C) 2021 Thorsten Suckow-Homberg https://github.com/coon/extjs-plug-themeutil
  *
  * Permission is hereby granted, free of charge, to any person
  * obtaining a copy of this software and associated documentation
@@ -43,9 +43,9 @@
  */
 Ext.define("coon.plugin.themeutil.app.plugin.ApplicationPlugin", {
 
-    extend : "coon.core.app.plugin.ApplicationPlugin",
+    extend: "coon.core.app.plugin.ApplicationPlugin",
 
-    requires : [
+    requires: [
         "coon.core.ThemeManager",
         "coon.core.ConfigManager",
         "coon.core.Environment"
@@ -60,7 +60,7 @@ Ext.define("coon.plugin.themeutil.app.plugin.ApplicationPlugin", {
      *
      * @param {coon.core.app.PackageController} packagerController
      */
-    run : function (controller) {
+    run: function (controller) {
         "use strict";
 
         if (coon.core.ThemeManager.getTheme()) {

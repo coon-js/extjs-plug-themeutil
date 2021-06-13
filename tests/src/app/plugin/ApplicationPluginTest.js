@@ -1,7 +1,7 @@
 /**
  * coon.js
- * plug-cn_themeutil
- * Copyright (C) 2021 Thorsten Suckow-Homberg https://github.com/coon/plug-cn_themeutil
+ * extjs-plug-themeutil
+ * Copyright (C) 2021 Thorsten Suckow-Homberg https://github.com/coon/extjs-plug-themeutil
  *
  * Permission is hereby granted, free of charge, to any person
  * obtaining a copy of this software and associated documentation
@@ -23,7 +23,7 @@
  * USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-describe("coon.plugin.themeutil.app.plugin.ApplicationPluginTest", (t) => {
+StartTest((t) => {
     "use strict";
 
     t.requireOk(
@@ -49,12 +49,12 @@ describe("coon.plugin.themeutil.app.plugin.ApplicationPluginTest", (t) => {
             const createMocks = (isCoonTheme, packageName = "", defaultConfig = {}) => {
 
                 Ext.define(MOCK_CLASS_NAME, {
-                    extend : "coon.core.Theme"
+                    extend: "coon.core.Theme"
 
                 }, function () {
 
                     if (!Ext.theme) {
-                        Ext.theme = {is : {}};
+                        Ext.theme = {is: {}};
                     }
 
                     Ext.theme.name = packageName;
@@ -146,7 +146,7 @@ describe("coon.plugin.themeutil.app.plugin.ApplicationPluginTest", (t) => {
 
             t.it("run() - coon.js-Theme", function (t) {
 
-                const config = {modes : {color : "blueish"}};
+                const config = {modes: {color: "blueish"}};
 
                 createMocks(true,"theme-cn_mock", config);
 
