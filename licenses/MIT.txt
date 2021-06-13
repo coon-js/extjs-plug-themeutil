@@ -1,6 +1,6 @@
 coon.js
-plug-cn_themeutil
-Copyright (C) 2021 Thorsten Suckow-Homberg https://github.com/coon-js/plug-cn_themeutil
+extjs-plug-themeutil
+Copyright (C) 2021 Thorsten Suckow-Homberg https://github.com/coon-js/extjs-plug-themeutil
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project name="plug-cn_themeutil" default=".help">
+<project name="extjs-plug-themeutil" default=".help">
 
     <script language="javascript">
         <![CDATA[

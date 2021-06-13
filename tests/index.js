@@ -1,7 +1,7 @@
 /**
  * coon.js
- * plug-cn_themeutil
- * Copyright (C) 2021 Thorsten Suckow-Homberg https://github.com/coon/plug-cn_themeutil
+ * extjs-plug-themeutil
+ * Copyright (C) 2021 Thorsten Suckow-Homberg https://github.com/coon-js/extjs-plug-themeutil
  *
  * Permission is hereby granted, free of charge, to any person
  * obtaining a copy of this software and associated documentation
@@ -23,43 +23,46 @@
  * USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-var harness = new Siesta.Harness.Browser.ExtJS();
+import testConfig from "./tests.config.js";
+import groups from "./groups.config.js";
+import {configureWithExtJsLinkPaths} from "../node_modules/@coon-js/siesta-lib-helper/dist/siesta-lib-helper.runtime.esm.js";
 
-harness.configure({
-    title          : "plug-cn_themeutil",
-    disableCaching : true,
-    loaderPath     : {
+let toolkitGroups,
+    urlParams = new URLSearchParams(document.location.search.substring(1)),
+    timeout =  urlParams.get("timeout") ? parseInt(urlParams.get("timeout")) : testConfig.timeout,
+    toolkit = urlParams.get("toolkit") ?? "classic";
 
-        "coon.plugin.themeutil" : "../src",
+const
+    browser = new Siesta.Harness.Browser.ExtJS(),
+    paths = await configureWithExtJsLinkPaths(testConfig, "../.extjs-link.conf.json", toolkit === "modern");
 
+toolkitGroups = groups.filter(entry => ["universal", toolkit].indexOf(entry.group) !== -1);
+toolkit       = toolkitGroups.length ? toolkitGroups[0].group : "universal";
 
-        /**
-         * Requirements
-         */
-        "coon.core" : "../../lib-cn_core/src"
+browser.configure(Object.assign({
+    title: `${testConfig.name} [${toolkit}]`,
+    isEcmaModule: true,
+    disableCaching: true,
+    config : {
+        TIMEOUT : timeout
+    }
+}, paths));
 
-    },
-    preload        : [
-        coon.tests.config.paths.extjs.css.url,
-        coon.tests.config.paths.extjs.js.url
-    ]
-});
+browser.start(toolkitGroups.length ? toolkitGroups : groups);
 
-harness.start({
-    group : "universal",
-    items : [{
-        group : "coon",
-        items : [{
-            group : "plugin",
-            items : [{
-                group : "themeutil",
-                items : [{
-                    group : "app",
-                    items : [
-                        "./src/app/ControllerPluginTest.js"
-                    ]
-                }]
-            }]
-        }]
-    }]
-});
+// classic | modern | timeout options
+document.getElementById("cn_timeout").value = timeout;
+if (["classic", "modern"].indexOf(toolkit) !== -1) {
+    document.getElementById(`cn_${toolkit}`).checked = true;
+} else {
+    ["classic", "modern"].forEach(toolkit => document.getElementById(`cn_${toolkit}`).disabled = true);
+}
+document.getElementById("cn_configBtn").onclick = () => {
+    let timeout = document.getElementById("cn_timeout").value,
+        toolkit = document.getElementById("cn_classic").checked
+            ? "classic"
+            : document.getElementById("cn_modern").checked
+                ? "modern"
+                : "";
+    window.location.href = `./index.html?toolkit=${toolkit}&timeout=${timeout}`;
+};
