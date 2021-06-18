@@ -9,8 +9,6 @@
     "toolkit": "classic",
     "creator": "coon.js",
     "summary": "NPM package providing a ControllerPlugin for registering coon.core.Theme with a coon.js-application.",
-    "version": "0.0.1",
-    "compatVersion": "0.0.1",
     "format": "1",
     "slicer": null,
     "output": {
@@ -42,17 +40,20 @@
     "framework": "ext",
     "requires": [
       "extjs-lib-core"
-    ]
+    ],
+    "version": "0.0.2",
+    "compatVersion": "0.0.2",
+    "version": "0.0.2"
   },
   "description": "NPM package providing a ControllerPlugin for registering coon.core.Theme with a coon.js-application.",
-  "version": "0.0.1",
   "main": "index.js",
   "directories": {
     "test": "tests"
   },
   "scripts": {
-    "test": "npx ws --port 8063 --static.index tests.html --open",
-    "postinstall" : "npx extjs-link"
+    "test": "npx ws --port 8063 --static.index tests.redirect.html --open",
+    "postinstall": "npm run setup:tests",
+    "setup:tests": "npx extjs-link && siesta-lib-helper"
   },
   "repository": {
     "type": "git",

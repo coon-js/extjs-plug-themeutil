@@ -5,3 +5,5 @@
 /.idea
 /.extjs-link.conf.json
 /node_modules
+/tests.redirect.html
+/tests/index.extjs-browser.html

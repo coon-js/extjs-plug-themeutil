@@ -36,7 +36,6 @@ StartTest((t) => {
 
             const
                 CLASS_NAME = "coon.plugin.themeutil.app.plugin.ApplicationPlugin",
-                TIMEOUT = 250,
                 MOCK_CLASS_NAME = "coon.plugin.themeutil.tests.Theme";
 
             /**
@@ -126,7 +125,7 @@ StartTest((t) => {
 
                 coon.core.ThemeManager._theme = "someval";
                 plugin.run();
-                t.waitForMs(TIMEOUT, function () {
+                t.waitForMs(t.parent.TIMEOUT, function () {
                     t.expect(coon.core.ThemeManager.getTheme()).toBe("someval");
                 });
             });
@@ -137,7 +136,7 @@ StartTest((t) => {
                 createMocks(false, "mypack");
                 plugin.run();
 
-                t.waitForMs(TIMEOUT, function () {
+                t.waitForMs(t.parent.TIMEOUT, function () {
                     t.expect(coon.core.ThemeManager.getTheme()).toBeUndefined();
                 });
 
