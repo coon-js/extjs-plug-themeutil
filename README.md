@@ -12,8 +12,13 @@ The plugin serves different purposes:
     
 ## Installation
 ```
-npm install --save-dev @coon-js/extjs-lib-core
+npm install --save-dev @coon-js/extjs-plug-themeutil  
 ```
+Use
+```
+npm run build:dev
+```
+for creating the dev environment.
 
 ## Post-Install
 [@coon-js/extjs-link](https://npmjs.org/coon-js/extjs-link) will start once the package was installed and guide you
@@ -22,30 +27,28 @@ This is only required if you want to run the tests (`./tests`), as [Siesta](http
 an existing ExtJS installation.
 
 ## Usage
-### Requirements
-* This package requires the [extjs-lib-core](https://github.com/coon-js/extjs-lib-core) package of the [coon.js](https://github.com/coon-js) project.
 
 ### Theme Naming Conventions
-Any theme that inherits from ```coon.core.Theme``` that should be considered with this plugin must obey to the following
+Any theme that inherits from `coon.core.Theme` that should be considered with this plugin must obey to the following
 conventions:
 
-* The theme must be registered with
-    * ```coon.core.Environment.get("coon-js-theme") = true```
-    * ```coon.core.Environment.get("theme.name") = "name_of_the_theme_package"```, e.g. if the
-      package's name is ```theme-acme```, this setting must equal to ```theme-acme```
+* The theme must be registered, so that querying the environment via
+    * `coon.core.Environment.get("coon-js-theme")` equals `true`
+    * `coon.core.Environment.get("theme.name")` equals to `name_of_the_theme_package`, e.g. if the
+      package's name is `theme-acme`, this setting must equal to `theme-acme`
 
-  These settings are usually configured in a file called ```init.js```, placed in the ```overrides```-folder
+  These settings are usually configured in a file called `init.js`, placed in the `overrides`-folder
   of the theme-package.
-* The theme's class-name must be build as follows: ```package_namespace.Theme```, e.g. if the
-  package's namespace is ```acme.theme.colorTheme```, the fqn of the theme-class extending ```coon.core.Theme```
-  must be ```acme.theme.colorTheme.Theme```
+* The theme's class-name must be build as follows: `package_namespace.Theme`, e.g. if the
+  package's namespace is `acme.theme.colorTheme`, the fqn of the theme-class extending `coon.core.Theme`
+  must be `acme.theme.colorTheme.Theme`
 
 ### Configuring a PackageController
 You are free to use this plugin in any [PackageController](https://github.com/coon-js/v/blob/master/src/app/PackageController.js) you'd like to chose.
 
 ### Example implementation
 For an example implementation of a [coon.core.Theme](https://github.com/coon-js/extjs-lib-core/blob/master/src/Theme.js) used with this plugin,
-have a look at the [conjoon.theme.material.Theme](https://github.com/conjoon/theme-cn_material/blob/master/src/Theme.js) of the [conjoon](https://github.com/conjoon)\-project.
+have a look at the [conjoon.theme.material.Theme](https://github.com/conjoon/theme-cn_material/blob/master/src/Theme.js) of the [conjoon-project](https://github.com/conjoon).
 
 
 ## Dev
