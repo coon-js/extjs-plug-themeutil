@@ -1,4 +1,4 @@
-# @coon-js/extjs-plug-themeutil  
+# @coon-js/extjs-plug-themeutil ![MIT](https://img.shields.io/npm/l/@coon-js/extjs-plug-themeutil) [![npm version](https://badge.fury.io/js/@coon-js%2Fextjs-plug-themeutil.svg)](https://badge.fury.io/js/@coon-js%2Fextjs-plug-themeutil)
 [ApplicationPlugin](https://github.com/coon-js/extjs-lib-core/blob/master/src/app/plugin/ApplicationPlugin.js) for querying and 
 applying a configured [coon.core.Theme](https://github.com/coon-js/extjs-lib-core/blob/master/src/Theme.js) for a [coon.js](https://github.com/coon-js) application.
 
@@ -11,14 +11,31 @@ The plugin serves different purposes:
     * Apply the default mode for the theme
     
 ## Installation
-```
-npm install --save-dev @coon-js/extjs-plug-themeutil  
+```bash
+$ npm install --save-dev @coon-js/extjs-plug-themeutil  
 ```
 Use
-```
-npm run build:dev
+```bash
+$ npm run build:dev
 ```
 for creating the dev environment.
+
+For using the package as an external dependency in an application, use
+```bash
+$ npm install --save-prod @coon-js/extjs-plug-themeutil  
+```
+In your `app.json`, add this package as a requirement, and make sure your ExtJS `workspace.json`
+is properly configured to look up local repositories in the `node_modules`-directory.
+
+Example (`workspace.json`) :
+```json 
+{
+  "packages": {
+    "dir": "${workspace.dir}/node_modules/@l8js,${workspace.dir}/node_modules/@conjoon,${workspace.dir}/node_modules/@coon-js,${workspace.dir}/packages/local,${workspace.dir}/packages,${workspace.dir}/node_modules/@sencha/ext-${toolkit.name},${workspace.dir}/node_modules/@sencha/ext-${toolkit.name}-treegrid,${workspace.dir}/node_modules/@sencha/ext-${toolkit.name}-theme-base,${workspace.dir}/node_modules/@sencha/ext-${toolkit.name}-theme-ios,${workspace.dir}/node_modules/@sencha/ext-${toolkit.name}-theme-material,${workspace.dir}/node_modules/@sencha/ext-${toolkit.name}-theme-aria,${workspace.dir}/node_modules/@sencha/ext-${toolkit.name}-theme-neutral,${workspace.dir}/node_modules/@sencha/ext-${toolkit.name}-theme-classic,${workspace.dir}/node_modules/@sencha/ext-${toolkit.name}-theme-gray,${workspace.dir}/node_modules/@sencha/ext-${toolkit.name}-theme-crisp,${workspace.dir}/node_modules/@sencha/ext-${toolkit.name}-theme-crisp-touch,${workspace.dir}/node_modules/@sencha/ext-${toolkit.name}-theme-neptune,${workspace.dir}/node_modules/@sencha/ext-${toolkit.name}-theme-neptune-touch,${workspace.dir}/node_modules/@sencha/ext-${toolkit.name}-theme-triton,${workspace.dir}/node_modules/@sencha/ext-${toolkit.name}-theme-graphite,${workspace.dir}/node_modules/@sencha/ext-${toolkit.name}-theme-material,${workspace.dir}/node_modules/@sencha/ext-calendar,${workspace.dir}/node_modules/@sencha/ext-charts,${workspace.dir}/node_modules/@sencha/ext-d3,${workspace.dir}/node_modules/@sencha/ext-exporter,${workspace.dir}/node_modules/@sencha/ext-pivot,${workspace.dir}/node_modules/@sencha/ext-pivot-d3,${workspace.dir}/node_modules/@sencha/ext-ux,${workspace.dir}/node_modules/@sencha/ext-font-ios",
+    "extract": "${workspace.dir}/packages/remote"
+  }
+}
+```
 
 ## Post-Install
 [@coon-js/extjs-link](https://npmjs.org/coon-js/extjs-link) will start once the package was installed and guide you
