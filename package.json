@@ -3,7 +3,9 @@
   "sencha": {
     "name": "extjs-plug-themeutil",
     "coon-js": {
-      "package": true
+      "package": {
+        "autoLoad": true
+      }
     },
     "namespace": "coon.plugin.themeutil",
     "type": "code",
