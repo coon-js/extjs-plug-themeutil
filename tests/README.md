@@ -6,7 +6,7 @@ This package uses [Siesta](http://bryntum.com) for Unit-/UI-testing.
 
 tl;dr
 ```
-npm run setup:tests
+npm run build:test
 npm test
 ```
 
@@ -14,7 +14,7 @@ Explanation:
 
 Run
 ```
-npm run setup:tests
+npm run build:test
 ```
 in the NPM package. The tool will guide you through the process of symlinking to an existing ExtJS SDK installation
 (build files are required to properly run the tests in a Siesta-Browser environment). Once this is done, boilerplate-html

@@ -12,7 +12,7 @@ The plugin serves different purposes:
     
 ## Installation
 ```bash
-$ npm install --save-dev @coon-js/extjs-plug-themeutil  
+$ npm i --save-dev @coon-js/extjs-plug-themeutil  
 ```
 Use
 ```bash
@@ -22,7 +22,7 @@ for creating the dev environment.
 
 For using the package as an external dependency in an application, use
 ```bash
-$ npm install --save-prod @coon-js/extjs-plug-themeutil  
+$ npm i @coon-js/extjs-plug-themeutil  
 ```
 In your `app.json`, add this package as a requirement, and make sure your ExtJS `workspace.json`
 is properly configured to look up local repositories in the `node_modules`-directory.
@@ -80,6 +80,7 @@ The following naming conventions apply:
 `cn_themeutil`
 
 ## Tests
-Tests are written with [Siesta](https://bryntum.com/siesta)
+Tests are written with [Siesta](https://bryntum.com/siesta). Documentation can be found
+in the [here](./tests/README.md).
 
 

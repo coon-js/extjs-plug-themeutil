@@ -58,7 +58,7 @@ Ext.define("coon.plugin.themeutil.app.plugin.ApplicationPlugin", {
      * for the package-name (queries then for a "modes"-property for teh configuration of the theme)
      * and register it with the ThemeManager.
      *
-     * @param {coon.core.app.PackageController} packagerController
+     * @param {coon.core.app.Application} application
      */
     run: function (controller) {
         "use strict";
