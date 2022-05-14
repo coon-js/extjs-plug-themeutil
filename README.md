@@ -80,7 +80,6 @@ The following naming conventions apply:
 `cn_themeutil`
 
 ## Tests
-Tests are written with [Siesta](https://bryntum.com/siesta). Documentation can be found
-in the [here](./tests/README.md).
+Tests are written with [Siesta](https://bryntum.com/siesta). Documentation can be found [here](./tests/README.md).
 
 

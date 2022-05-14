@@ -44,8 +44,8 @@
     "requires": [
       "extjs-lib-core"
     ],
-    "version": "0.1.2",
-    "compatVersion": "0.1.2"
+    "version": "0.1.3",
+    "compatVersion": "0.1.3"
   },
   "description": "NPM package providing a ControllerPlugin for registering coon.core.Theme with a coon.js-application.",
   "main": "index.js",
